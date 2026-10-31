@@ -1,0 +1,6 @@
+{
+  "name": "VyaparAI – Smart Business Management Platform",
+  "description": "AI-powered all-in-one smart business management, POS billing, inventory, and sales forecasting platform for retail, kirana, medical stores, and Indian MSMEs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
