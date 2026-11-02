@@ -4340,6 +4340,20 @@
   ],
   "auditLogs": [
     {
+      "id": "aud-1793602691123-5p47",
+      "businessId": "biz-sharma-kirana",
+      "userId": "user-rajesh-sharma",
+      "userName": "Rajesh Sharma",
+      "userRole": "Business Owner",
+      "action": "TEST_SERVICE_LOG",
+      "severity": "info",
+      "entityType": "product",
+      "entityId": "test-123",
+      "details": "{\"test\":\"ok\"}",
+      "ipAddress": "127.0.0.1 (Local POS Terminal)",
+      "timestamp": "2026-11-02T06:58:11.123Z"
+    },
+    {
       "id": "aud-1793431583384-kryg",
       "businessId": "biz-sharma-kirana",
       "userId": "user-rajesh-sharma",

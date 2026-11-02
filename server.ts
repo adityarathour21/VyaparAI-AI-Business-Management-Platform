@@ -926,6 +926,25 @@ app.get('/api/audit-logs', authenticate, (req: AuthenticatedRequest, res: Respon
   return res.json(logs);
 });
 
+app.post('/api/audit-logs', authenticate, (req: AuthenticatedRequest, res: Response) => {
+  const bizId = req.body.businessId || req.businessId!;
+  const { action, targetId, details, severity, entityType } = req.body;
+
+  const log = AuditService.log({
+    businessId: bizId,
+    userId: req.body.userId || req.user?.id || 'sys',
+    userName: req.user?.name || 'Authorized User',
+    userRole: req.user?.role || 'Staff',
+    action: action || 'MANUAL_AUDIT_ENTRY',
+    severity: severity || (action?.includes('DELETE') || action?.includes('VOID') ? 'critical' : 'info'),
+    entityType: entityType || 'product',
+    entityId: targetId,
+    details: typeof details === 'string' ? details : JSON.stringify(details)
+  });
+
+  return res.status(201).json(log);
+});
+
 app.get('/api/audit-logs/export', authenticate, (req: AuthenticatedRequest, res: Response) => {
   const bizId = req.businessId!;
   const csv = AuditService.exportToCSV(bizId);
